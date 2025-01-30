@@ -1,0 +1,52 @@
+﻿<Window x:Class="TP2_POO2.View.AjouterClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP2_POO2.View"
+        mc:Ignorable="d"
+        Title="Ajouter un client" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Veuillez entrer vos informations" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" />
+            
+        <Label Content="Identifiant de l'oenologue :" VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="idOenologue" Width="250" Text="{Binding Client.oenologueId , UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Nom :" Width="120" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.nom , UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Prénom :" Width="120" VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.prenom , UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Date de naissance :" Width="120" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Left"/>
+        <DatePicker Width="250" SelectedDate="{Binding Client.dateNaissance, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" HorizontalAlignment="Right" Height="25"/>
+        <Label Content="Ville :" Width="120" VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.ville , UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Province :" Width="120" VerticalAlignment="Center" Grid.Row="5" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.province , UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Pays :" Width="120" VerticalAlignment="Center" Grid.Row="6" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.pays , UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" HorizontalAlignment="Right" Height="20"/>
+        <Label Content="Civilité :" Width="120" VerticalAlignment="Center" Grid.Row="7" HorizontalAlignment="Left"/>
+        <ComboBox SelectedItem="{Binding Client.civilite, UpdateSourceTrigger=PropertyChanged}" Grid.Row="7" HorizontalAlignment="Right" Height="20"
+                 ItemsSource="{Binding Civilite}" Width="250" />
+        <Label Content="Adresse :" Width="120" VerticalAlignment="Center" Grid.Row="8" HorizontalAlignment="Left"/>
+        <TextBox Width="250" Text="{Binding Client.adresse , UpdateSourceTrigger=PropertyChanged}" Grid.Row="8" HorizontalAlignment="Right" Height="20"/>
+        <Button Content="Ajouter" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Grid.Column="1" Grid.Row="3" Command="{Binding ClientCommand}"/>
+        <Button Content="Quitter" Height="55" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Grid.Column="1" Grid.Row="5" Click="Quitter"/>
+
+    </Grid>
+</Window>

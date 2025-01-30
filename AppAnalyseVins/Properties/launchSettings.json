@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TP2_POO2": {
+      "commandName": "Project"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\samsi\\OneDrive\\Documents\\Université\\H2024\\Programmation Objet II\\TravauxPratiques\\TP2\\TP2_POO2\\TP2_POO2.sln"
+    }
+  }
+}

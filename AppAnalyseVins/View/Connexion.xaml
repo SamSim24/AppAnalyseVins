@@ -1,0 +1,108 @@
+﻿<Window x:Class="TP2_POO2.Connexion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:TP2_POO2"
+        mc:Ignorable="d"
+        Title="Connexion" Height="600" Width="475">
+
+    <TabControl x:Name="pageConnexion">
+        <TabItem Header="Connexion">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush  />
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.3*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Bienvenue dans notre application!" FontSize="22" HorizontalAlignment="Center" Margin="0,20,0,10"/>
+                <StackPanel Grid.Row="1" Orientation="Vertical" Margin="20" VerticalAlignment="Center">
+                    <TextBlock Text="Identifiant : " Margin="0,5,0,3"/>
+                    <TextBox x:Name="IdTextBox" Margin="0,0,0,10"
+                                 />
+                    <TextBlock Text="Mot de passe : " Margin="0,5,0,3"/>
+                    <PasswordBox x:Name="MdpBox" Margin="0,0,0,10"
+                                  />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Content="Connexion" Height="40" Width="300" Grid.ColumnSpan="2" Click="OuvrirMenuPrincipal" Margin="0,5,0,3"/>
+                    <TextBlock Text="Oublier votre mot de passe?" Foreground="LightSteelBlue" HorizontalAlignment="Center" Margin="0,5,0,3" TextDecorations="Underline" Cursor="Hand" />
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <!-- Onglet Inscription-->
+
+        <TabItem Header="Inscription">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Pour vous inscrire, veuillez remplir les champs suivants. Les champs annotée d'une étoile (*) doivent être unique" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,10,5,20"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Veuillez choisir un identifiant" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                    <TextBox Width="200" Height="20" Margin="5,5,0,5" Text="{Binding Oenologue.oenologueId , UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="* Votre identifiant doit etre unique" Foreground="Red" FontSize="8" FontStyle="Italic" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <Label Grid.Row="2" Grid.Column="0" Content="Veuillez choisir un mot de passe" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Width="200" Height="20" Margin="5,5,0,5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Oenologue.AppMDP , UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Center" TextWrapping="Wrap" Text="Veuillez remplir vos information personelle. Les champs annotees d'une etoile (*) sont obligatoire"/>
+                <StackPanel Orientation="Vertical" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Nom : " Width="125"/>
+                        <TextBox x:Name="NomTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.nom, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Prenom : " Width="125"/>
+                        <TextBox x:Name="PrenomTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.prenom, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Date de naissance : " Width="125"/>
+                        <DatePicker x:Name="datePicker" Margin="10"
+                                     SelectedDate="{Binding Oenologue.dateNaissance, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Ville : " Width="125"/>
+                        <TextBox x:Name="VilleTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.ville, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Province : " Width="125"/>
+                        <TextBox x:Name="ProvinceTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.province, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Pays : " Width="125"/>
+                        <TextBox x:Name="PaysTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.pays, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Adresse : " Width="125"/>
+                        <TextBox x:Name="AdresseTextBox" Width="200" Height="20" Margin="5,5,0,5"
+                                     Text="{Binding Oenologue.adresse, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Civilite : " Width="125"/>
+                        <ComboBox SelectedItem="{Binding Oenologue.civilite, UpdateSourceTrigger=PropertyChanged}"
+                                  ItemsSource="{Binding Civilite}" Width="200" Margin="5,5,0,5"/>
+                    </StackPanel>
+                    <Button Content="S'inscrire" Height="40" Width="300" Grid.ColumnSpan="2" Command="{Binding AddOenologueCommand}" Click="clickInscription" Margin="0,5,0,3"/>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
